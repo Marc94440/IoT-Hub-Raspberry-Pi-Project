@@ -4,7 +4,8 @@
 */
 'use strict';//oblige à donner un type à toute les variables
 
-
+//require() est une fonction (comme import en python), et permet d'utiliser des modules 
+//module -> collection de fonctions et d'objets, similaire à une classe en C# ou une librairie en python/R
 const fs = require('fs');
 const path = require('path');
 
@@ -20,6 +21,7 @@ const bi = require('az-iot-bi');
 
 const MessageProcessor = require('./messageProcessor.js');
 
+//initialisation de variable
 var isMessageSendOn = true;
 var messageId = 0;
 var client, config, messageProcessor;
@@ -27,7 +29,7 @@ var client, config, messageProcessor;
 function sendMessage() {
   if (!isMessageSendOn) { return; }
 
-  messageId++;
+  messageId++;//compteur du nombre de message
 
   messageProcessor.getMessage(messageId, (content, temperatureAlert) => {
     var message = new Message(content.toString('utf-8'));
