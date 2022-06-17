@@ -14,8 +14,8 @@ setInterval(() => {
 }, 2500); // the sensor can only be red every 2 seconds
 
 sensor.on('result', data => {
-  console.log(`temp: 20°c`); 
-  console.log(`rhum: 50%`); 
+  console.log(`temp: ${data.temperature}°c`); 
+  console.log(`rhum: ${data.humidity}%`); 
 });
 
 sensor.on('badChecksum', () => {
