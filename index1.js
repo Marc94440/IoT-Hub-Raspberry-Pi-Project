@@ -19,7 +19,7 @@ const AmqpProtocol = require('azure-iot-device-amqp').Amqp;
 
 const bi = require('az-iot-bi');
 
-const messageProcessor1 = require('./messageProcessor1.js');
+const MessageProcessor1 = require('./messageProcessor1.js');
 
 //initialisation de variable
 var isMessageSendOn = true;
