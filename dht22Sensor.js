@@ -3,8 +3,26 @@
 */
 'use strict';
 
-const DHT22 = require('DHT-sensor-library');
+const DHT22 = require('dht');
 
+const dataPin=5;
+const dhtType=22;
+
+const Sensor=dht(dataPin, dhtType);
+setInterval(() => { 
+  sensor.read();
+}, 2500); // the sensor can only be red every 2 seconds
+
+sensor.on('result', data => {
+  console.log(`temp: 20°c`); 
+  console.log(`rhum: 50%`); 
+});
+
+sensor.on('badChecksum', () => {
+  console.log('checksum failed');
+});
+
+/*
 // The DHT22 constructor options are optional.
 const DEFAULT_OPTIONS = {
   i2cBusNo: 1, // defaults to 1
@@ -31,6 +49,6 @@ Sensor.prototype.read = function (callback) {
       callback(null, data);
     })
     .catch(callback);
-}
+}*/
 
 module.exports = Sensor;
