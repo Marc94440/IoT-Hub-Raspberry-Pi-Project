@@ -3,13 +3,13 @@
 */
 'use strict';
 
-const DHT22 = require('dht');
+const dht = require('dht');
 
 const dataPin=5;
 const dhtType=22;
 
-const Sensor=dht(dataPin, dhtType);
-setInterval(() => { 
+const sensor=dht(dataPin, dhtType);
+setInterval(() => { //()
   sensor.read();
 }, 2500); // the sensor can only be red every 2 seconds
 
@@ -51,4 +51,4 @@ Sensor.prototype.read = function (callback) {
     .catch(callback);
 }*/
 
-module.exports = Sensor;
+module.exports = sensor;
