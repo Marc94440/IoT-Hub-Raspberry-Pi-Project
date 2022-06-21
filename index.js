@@ -4,7 +4,7 @@
 */
 'use strict';//oblige à donner un type à toute les variables
 
-//require() est une fonction (comme import en python), et permet d'utiliser des modules 
+//require() est une fonction (comme import en python), et permet d'utiliser des modules
 //module -> collection de fonctions et d'objets, similaire à une classe en C# ou une librairie en python/R
 const fs = require('fs');
 const path = require('path');
@@ -87,12 +87,12 @@ function receiveMessageCallback(msg) {
 }
 function blinkLED() {
   // Light up LED for 500 ms
-    const led = new gpio(config.LEDPinGPIO, 'out');
-    led.writeSync(1);
-    setTimeout(function () {
-        led.writeSync(0);
-      }, 500);
-    }
+  const led = new gpio(config.LEDPinGPIO, 'out');
+  led.writeSync(1);
+  setTimeout(function () {
+    led.writeSync(0);
+  }, 500);
+}
 
 function initClient(connectionStringParam, credentialPath) {
   var connectionString = ConnectionString.parse(connectionStringParam);
@@ -149,7 +149,7 @@ function initClient(connectionStringParam, credentialPath) {
     return;
   }
 
- 
+
   messageProcessor = new MessageProcessor(config);
 
   try {

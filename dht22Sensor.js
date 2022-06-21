@@ -3,22 +3,28 @@
 */
 'use strict';
 
-const dht = require('dht');
+const DHT = require('pigpio-dht');
 
 const dataPin=5;
 const dhtType=22;
 
-const sensor=dht(dataPin, dhtType);
+const Sensor=DHT(dataPin, dhtType);
+this.dht22 = new DHT();
+/*function Sensor(options) {
+  options = Object.assign(DEFAULT_OPTIONS, options || {});
+  this.dht22 = new DHT22(options);
+}*/
+
 setInterval(() => { //()
-  sensor.read();
+  Sensor.read();
 }, 2500); // the sensor can only be red every 2 seconds
 
-sensor.on('result', data => {
-  console.log(`temp: ${data.temperature}°c`); 
-  console.log(`rhum: ${data.humidity}%`); 
+Sensor.on('result', data => {
+  console.log(`temp: ${data.temperature}°c`);
+  console.log(`rhum: ${data.humidity}%`);
 });
 
-sensor.on('badChecksum', () => {
+Sensor.on('badChecksum', () => {
   console.log('checksum failed');
 });
 
@@ -51,4 +57,4 @@ Sensor.prototype.read = function (callback) {
     .catch(callback);
 }*/
 
-module.exports = sensor;
+module.exports = Sensor;
