@@ -19,19 +19,19 @@ const AmqpProtocol = require('azure-iot-device-amqp').Amqp;
 
 const bi = require('az-iot-bi');
 
-const MessageProcessor1 = require('./messageProcessor1.js');
+const MessageProcessor = require('./messageProcessor.js');
 
 //initialisation de variable
 var isMessageSendOn = true;
 var messageId = 0;
-var client, config, messageProcessor1;
+var client, config, messageProcessor;
 //fonction d'envoi de msg
 function sendMessage() {
   if (!isMessageSendOn) { return; }
 
   messageId++;//compteur du nombre de message
 
-  messageProcessor1.getMessage(messageId, (content, temperatureAlert) => {
+  messageProcessor.getMessage(messageId, (content, temperatureAlert) => {
     var message = new Message(content.toString('utf-8'));
     message.contentEncoding = 'utf-8';
     message.contentType = 'application/json';
@@ -150,7 +150,7 @@ function initClient(connectionStringParam, credentialPath) {
   }
 
 
-  messageProcessor1 = new MessageProcessor1(config);
+  messageProcessor = new MessageProcessor(config);
 
   try {
     var firstTimeSetting = false;
