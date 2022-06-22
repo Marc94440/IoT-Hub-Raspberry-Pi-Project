@@ -5,7 +5,7 @@
 const rpio=require('rpio');
 
 const pin=8//Initialise le pin
-
+rpio.open(pin,rpio.INPUT);
 function Sensor(/* options */) {
   // nothing todo
 }
