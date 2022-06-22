@@ -2,6 +2,9 @@
 * IoT Hub Raspberry Pi NodeJS - Microsoft Sample Code - Copyright (c) 2017 - Licensed MIT
 */
 'use strict';
+const rpio=require('rpio');
+
+const pin=8//Initialise le pin
 
 function Sensor(/* options */) {
   // nothing todo
@@ -16,7 +19,7 @@ Sensor.prototype.read = function (callback) {
   callback(null, {
     temperature: random(20, 30),
     humidity: random(60, 80),
-    infrared : Math.floor(Math.random()*2),//entier entre 0 et 1
+    infrared : rpio.read(pin),//entier entre 0 et 1
     weight: random(0,1)
   });
 }
