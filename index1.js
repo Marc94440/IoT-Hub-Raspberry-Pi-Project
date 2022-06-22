@@ -37,7 +37,7 @@ function sendMessage() {
     message.contentType = 'application/json';
     message.properties.add('temperatureAlert', temperatureAlert ? 'true' : 'false');
 
-    console.log('[Device] Sending message: ' + content);
+    console.log('[Device] Sending message: ' + content);//content est le msg que l'on envoie
 
     client.sendEvent(message, (err) => {
       if (err) {

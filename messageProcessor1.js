@@ -5,6 +5,9 @@
 
 const Bme280Sensor = require('./bme280Sensor.js');
 const SimulatedSensor = require('./simulatedSensor.js');
+const rpio=require('rpio');
+
+const pin=8//Initialise le pin
 
 function MessageProcessor(option) {
   option = Object.assign({
@@ -32,7 +35,7 @@ MessageProcessor.prototype.getMessage = function (messageId, cb) {
       deviceId: this.deviceId,
       temperature: data.temperature,
       humidity: data.humidity,
-      infrared : data.infrared,
+      infrared : rpio.read(pin),
       weight: data.weight
     }), data.temperature > this.temperatureAlert);
   });
