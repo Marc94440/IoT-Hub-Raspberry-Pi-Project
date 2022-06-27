@@ -5,9 +5,6 @@
 
 const Bme280Sensor = require('./bme280Sensor.js');
 const SimulatedSensor = require('./simulatedSensor.js');
-const rpio=require('rpio');
-
-const pin=8//Initialise le pin
 
 function MessageProcessor(option) {
   option = Object.assign({

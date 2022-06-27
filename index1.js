@@ -85,6 +85,7 @@ function receiveMessageCallback(msg) {
     console.log('Received message:\n\t' + message);
   });
 }
+
 function blinkLED() {
   // Light up LED for 500 ms
   const led = new gpio(config.LEDPinGPIO, 'out');
