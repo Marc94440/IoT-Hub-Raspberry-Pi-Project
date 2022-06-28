@@ -28,7 +28,7 @@ To change the initialization variable :
 nano config.json       
 ```
 <photo>
-Run the application by typing the following command :
+Run the application by copying your device IoT Hub connection string and typing the following command :
   
 ```bash
 sudo node index1.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
@@ -37,5 +37,8 @@ sudo node index1.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'
 ### Credit
 This code is based on a sample code from Azure. 
 
-the original code is available here : https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Tutorials/RaspberryPiApp
-And the step to step tutorial here : https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+- The original code is available here : https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Tutorials/RaspberryPiApp
+- Step to step IoT Hub tutorial here : https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started  
+- Step to step tutorial to connect to Power Bi for real time data visualisation: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi
+- Real time Power Bi Dashboard : https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming
+- To stream your data into a blob storage : https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal
