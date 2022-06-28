@@ -9,7 +9,7 @@ rpio.open(pinIR,rpio.INPUT);
 const pinBuzzer=10//Initialise le pin
 rpio.open(pinBuzzer,rpio.OUTPUT);
 rpio.write(pinBuzzer,rpio.LOW);
-const pinPWM=12;//initialise le pin
+/*const pinPWM=12;//initialise le pin
 
 const valMax=1024;
 const div=64;
@@ -19,7 +19,7 @@ const valeur=500;
 rpio.open(pinPWM,rpio.PWM);
 rpio.pwmSetClockDivider(div);//valeur (doit etre une puissance de 2) qui divise 19.2MHz ici on a 128 donc 150KHz
 rpio.pwmSetRange(pinPWM,valMax);//Valeur max de la largeur de l'impulsion
-rpio.pwmSetData(pinPWM,valeur);
+rpio.pwmSetData(pinPWM,valeur);*/
 
 function Sensor(/* options */) {
   // nothing todo
@@ -52,6 +52,7 @@ function temp(min, max) {
   }
   return temps;
 }
-rpio.pwmSetData(pinPWM,0);
+//rpio.pwmSetData(pinPWM,0);
+//ne marche que pour la première initalisation donc sans rpio.sleep(), ça stop direct
 
 module.exports = Sensor;
