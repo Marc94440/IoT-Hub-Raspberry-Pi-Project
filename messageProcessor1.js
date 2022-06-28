@@ -5,19 +5,6 @@
 
 //const Bme280Sensor = require('./bme280Sensor.js');
 const SimulatedSensor = require('./simulatedSensor.js');
-const rpio=require('rpio');
-
-const pinPWM=12;//initialise le pin
-
-const valMax=1024;
-const div=64;
-const valeur=500;
-
-
-rpio.open(pinPWM,rpio.PWM);
-rpio.pwmSetClockDivider(div);//valeur (doit etre une puissance de 2) qui divise 19.2MHz ici on a 128 donc 150KHz
-rpio.pwmSetRange(pinPWM,valMax);//Valeur max de la largeur de l'impulsion
-rpio.pwmSetData(pinPWM,valeur);
 
 
 function MessageProcessor(option) {
@@ -52,7 +39,5 @@ MessageProcessor.prototype.getMessage = function (messageId, cb) {
     }), data.temperature > this.temperatureAlert);
   });
 }
-rpio.sleep(1);
-rpio.pwmSetData(pinPWM,0);
 
 module.exports = MessageProcessor;
