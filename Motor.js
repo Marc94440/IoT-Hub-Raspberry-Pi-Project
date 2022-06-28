@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 const rpio=require('rpio');
 const pinPWM=12;//initialise le pin
 //attention choix du pin entre 12, 32, 33 et 35
