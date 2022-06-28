@@ -9,19 +9,31 @@
 <Branchement>  
                                                                                                    
 On your Raspberry Pi or using SSH, first install the latest version of nodejs : 
-```sh
-curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+```bash
+curl -sL http://deb.nodesource.com/setup_18.x | sudo -E bash
 sudo apt-get -y install nodejs                                                                                                   
-```
-                                                                                                 
+```                                                                                                 
 Then clone the repository in a folder named IoT_App in the Pi Desktop :
-
-                                                                                                   
-
-```sh
+```bash
 git clone https://github.com/Marc94440/IoT-Hub-Raspberry-Pi-Project Desktop/IoT_App                           
 ```
-Now let's install all the necesorry packages : 
+Now let's install all the necesarry packages : 
+```bash
+cd Desktop/IoT_App
+npm install
+npm install rpio --save 
+```
+To change the initialization variable :    
+```bash
+nano config.json       
+```
+<photo>
+Run the application by typing the following command :
+  
+```bash
+sudo node index1.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
+```
+  
 ### Credit
 This code is based on a sample code from Azure. 
 
