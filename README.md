@@ -23,7 +23,7 @@ cd Desktop/IoT_App
 npm install
 npm install rpio --save 
 ```
-To change the initialization variable :    
+To change the initialization variables :    
 ```bash
 nano config.json       
 ```
