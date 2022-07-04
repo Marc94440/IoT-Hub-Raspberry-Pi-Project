@@ -22,6 +22,7 @@ Now let's install all the necesarry packages :
 cd Desktop/IoT_App
 npm install
 npm install rpio --save 
+npm install mcp3008.js --save
 ```
 To change the initialization variables :    
 ```bash
