@@ -4,16 +4,20 @@
 'use strict';
 const rpio=require('rpio');
 const Gpio = require('pigpio').Gpio;
-const motor1 = new Gpio(6, {mode: Gpio.OUTPUT});//6->Pin 31
-const motor2 = new Gpio(19, {mode: Gpio.OUTPUT});//19->Pin 35
+
+rpio.init({gpiomem: false});
+
+const Smotor1 = new Gpio(6, {mode: Gpio.OUTPUT});//6->Pin 31
+const Smotor2 = new Gpio(19, {mode: Gpio.OUTPUT});//19->Pin 35
 
 let pulseWidth = 1000;
 let increment = 500;
 
+
 setInterval(() => {
-  motor1.servoWrite(pulseWidth);
-  rpio.sleep(1);
-  motor2.servoWrite(pulseWidth);
+  Smotor1.servoWrite(pulseWidth);
+  Smotor2.servoWrite(pulseWidth);
+
 
   pulseWidth += increment;
   if (pulseWidth >= 1500) {
@@ -24,7 +28,26 @@ setInterval(() => {
 }, 1000);
 
 
-rpio.init({gpiomem: false});
+
+setInterval(() => {
+  pulseWidth=1000;  
+  Smotor1.servoWrite(pulseWidth);
+  rpio.sleep(1);
+  Smotor1.servoWrite(pulseWidth-500);
+  rpio.sleep(1);  
+  pulseWidth=1000;  
+  Smotor2.servoWrite(pulseWidth);
+  rpio.sleep(1);
+  Smotor2.servoWrite(pulseWidth-500);
+  rpio.sleep(1);
+
+  pulseWidth += increment;
+  if (pulseWidth >= 1500) {
+    increment = -500;
+  } else if (pulseWidth <= 1000) {
+    increment = 500;
+  }
+}, 1000);
 //rpio.init() sers a modifier les parametre de base de la classe rpio pour l'instance créer ici
 
 const pinIR=8//Initialise le pin
@@ -32,22 +55,22 @@ rpio.open(pinIR,rpio.INPUT);
 const pinBuzzer=10//Initialise le pin
 rpio.open(pinBuzzer,rpio.OUTPUT);
 rpio.write(pinBuzzer,rpio.LOW);
-const pinPWM1=32;//initialise le pin
-const pinPWM2=33;//initialise le pin
+const pinPWM1=12;//initialise le pin
+//const pinPWM2=33;//initialise le pin
 
 const valMax=1024;
 const div=64;
-const valeur=600;
+const valeur=1024;
 
 rpio.open(pinPWM1,rpio.PWM);
 rpio.pwmSetClockDivider(div);//valeur (doit etre une puissance de 2) qui divise 19.2MHz ici on a 128 donc 150KHz
 rpio.pwmSetRange(pinPWM1,valMax);//Valeur max de la largeur de l'impulsion
 rpio.pwmSetData(pinPWM1,valeur);//valeur du signal
 
-rpio.open(pinPWM2,rpio.PWM);
+/*rpio.open(pinPWM2,rpio.PWM);
 rpio.pwmSetRange(pinPWM2,valMax);//Valeur max de la largeur de l'impulsion
 rpio.pwmSetData(pinPWM2,valeur);//valeur du signal
-
+*/
 
 function Sensor(/* options */) {
   // nothing todo
