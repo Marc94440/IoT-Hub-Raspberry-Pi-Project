@@ -15,7 +15,7 @@ sudo apt-get -y install nodejs
 ```                                                                                                 
 Then clone the repository in a folder named IoT_App in the Pi Desktop :
 ```bash
-git clone https://github.com/Marc94440/IoT-Hub-Raspberry-Pi-Project Desktop/IoT_App   
+git clone https://github.com/Marc94440/IoT-Hub-Raspberry-Pi-Project.git Desktop/IoT_App   
 ```
 Now let's install all the necesarry packages : 
 ```bash
