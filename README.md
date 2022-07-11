@@ -23,6 +23,7 @@ cd Desktop/IoT_App
 npm install
 npm install rpio --save 
 npm install mcp3008.js --save
+npm install node-dht-sensor --save
 ```
 To change the initialization variables :    
 ```bash
