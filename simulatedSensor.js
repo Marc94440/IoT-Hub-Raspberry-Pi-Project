@@ -7,26 +7,13 @@ const Gpio = require('pigpio').Gpio;
 
 rpio.init({gpiomem: false});
 
+//Attention certain port (19 par ex) ne marche pas !!!!!
+
 const Smotor1 = new Gpio(6, {mode: Gpio.OUTPUT});//6->Pin 31
-const Smotor2 = new Gpio(19, {mode: Gpio.OUTPUT});//19->Pin 35
+const Smotor2 = new Gpio(13, {mode: Gpio.OUTPUT});//13->Pin 33
 
 let pulseWidth = 1000;
 let increment = 500;
-
-
-setInterval(() => {
-  Smotor1.servoWrite(pulseWidth);
-  Smotor2.servoWrite(pulseWidth);
-
-
-  pulseWidth += increment;
-  if (pulseWidth >= 1500) {
-    increment = -500;
-  } else if (pulseWidth <= 1000) {
-    increment = 500;
-  }
-}, 1000);
-
 
 
 setInterval(() => {
@@ -56,21 +43,21 @@ const pinBuzzer=10//Initialise le pin
 rpio.open(pinBuzzer,rpio.OUTPUT);
 rpio.write(pinBuzzer,rpio.LOW);
 const pinPWM1=12;//initialise le pin
-//const pinPWM2=33;//initialise le pin
+const pinPWM2=32;//initialise le pin
 
 const valMax=1024;
-const div=64;
-const valeur=1024;
+const div=4;
+const valeur=700;
 
 rpio.open(pinPWM1,rpio.PWM);
 rpio.pwmSetClockDivider(div);//valeur (doit etre une puissance de 2) qui divise 19.2MHz ici on a 128 donc 150KHz
 rpio.pwmSetRange(pinPWM1,valMax);//Valeur max de la largeur de l'impulsion
 rpio.pwmSetData(pinPWM1,valeur);//valeur du signal
 
-/*rpio.open(pinPWM2,rpio.PWM);
+rpio.open(pinPWM2,rpio.PWM);
 rpio.pwmSetRange(pinPWM2,valMax);//Valeur max de la largeur de l'impulsion
 rpio.pwmSetData(pinPWM2,valeur);//valeur du signal
-*/
+
 
 function Sensor(/* options */) {
   // nothing todo
