@@ -28,5 +28,5 @@ var Mcp3008 = require('mcp3008.js'),
     };
 
 adc.read(0, out);
-adc.poll(0, 2000, out);
+adc.poll(0, 10, out);
 setTimeout(function () { adc.close(); }, 100000);

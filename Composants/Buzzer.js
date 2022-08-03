@@ -1,5 +1,5 @@
 'use strict';
-
+//Ce code fait bipper un buzzer 100 fois 
 const rpio=require('rpio');
 
 const pinBuzzer=10//Initialise le pin

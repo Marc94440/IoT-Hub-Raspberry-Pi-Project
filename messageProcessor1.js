@@ -6,7 +6,6 @@
 //const Bme280Sensor = require('./bme280Sensor.js');
 const SimulatedSensor = require('./simulatedSensor.js');
 
-
 function MessageProcessor(option) {
   option = Object.assign({
     deviceId: '[Unknown device] node',

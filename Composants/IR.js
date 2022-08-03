@@ -1,5 +1,5 @@
 'use strict';
-
+//Ce code renvoie un booléen 0 si rien ne passe entre les capteur et 1 si quelque chose passe
 const rpio=require('rpio');
 
 const pinIR=8//Initialise le pin

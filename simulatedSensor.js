@@ -11,7 +11,7 @@ var sensor = require("node-dht-sensor");
 rpio.init({gpiomem: false});
 
 
-const Smotor1 = new Gpio(19, {mode: Gpio.OUTPUT});//6->Pin 31
+const Smotor1 = new Gpio(19, {mode: Gpio.OUTPUT});//19->Pin 35
 const Smotor2 = new Gpio(13, {mode: Gpio.OUTPUT});//13->Pin 33
 
 let pulseWidth = 1000;
@@ -20,14 +20,14 @@ let increment = 500;
 setInterval(() => {
   pulseWidth=1000;  
   Smotor1.servoWrite(pulseWidth);
-  rpio.sleep(1);
+  rpio.msleep(250);
   Smotor1.servoWrite(pulseWidth-500);
-  rpio.sleep(1);  
+  rpio.msleep(250);  
   pulseWidth=1000;  
   Smotor2.servoWrite(pulseWidth);
-  rpio.sleep(1);
+  rpio.msleep(250);
   Smotor2.servoWrite(pulseWidth-500);
-  rpio.sleep(1);
+  rpio.msleep(250);
 
   pulseWidth += increment;
   if (pulseWidth >= 1500) {
@@ -35,7 +35,7 @@ setInterval(() => {
   } else if (pulseWidth <= 1000) {
     increment = 500;
   }
-}, 1000);
+}, 10);
 //rpio.init() sers a modifier les parametre de base de la classe rpio pour l'instance créer ici
 
 const pinIR=8//Pin du capteur infrarouge
@@ -70,10 +70,10 @@ var Mcp3008 = require('mcp3008.js'),
     };
 
 adc.read(0, out);
-adc.poll(0, 2000, out);
+adc.poll(0, 10, out);
 setTimeout(function () { adc.close(); }, 100000);
 
-const loadCell = new HX711(6, 5, { //6=clk pin 5=datapin
+const loadCell = new HX711(6, 5, { //6=clk pin 5=datapin (6 : pin 31 et 5 : pin 33 )
   continous: 30,
   offset : 8300964 //, //A tester (permet de faire le zero)
 });
