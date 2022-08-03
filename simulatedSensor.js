@@ -8,7 +8,6 @@ const Gpio = require('pigpio').Gpio;
 const HX711 = require('./hx711');
 var sensor = require("node-dht-sensor");
 
-
 rpio.init({gpiomem: false});
 
 
@@ -17,7 +16,6 @@ const Smotor2 = new Gpio(13, {mode: Gpio.OUTPUT});//13->Pin 33
 
 let pulseWidth = 1000;
 let increment = 500;
-
 
 setInterval(() => {
   pulseWidth=1000;  
@@ -40,15 +38,15 @@ setInterval(() => {
 }, 1000);
 //rpio.init() sers a modifier les parametre de base de la classe rpio pour l'instance créer ici
 
-const pinIR=8//Initialise le pin
+const pinIR=8//Pin du capteur infrarouge
 rpio.open(pinIR,rpio.INPUT);
 
-const pinBuzzer=10//Initialise le pin
+const pinBuzzer=10//pin du Buzzer
 rpio.open(pinBuzzer,rpio.OUTPUT);
 rpio.write(pinBuzzer,rpio.LOW);
 
-const pinPWM1=12;//initialise le pin
-const pinPWM2=32;//initialise le pin
+const pinPWM1=12;//initialise le pin du moteur 1
+const pinPWM2=32;//initialise le pin du moteur 2
 
 const valMax=1024;
 const div=4;
@@ -74,6 +72,7 @@ var Mcp3008 = require('mcp3008.js'),
 adc.read(0, out);
 adc.poll(0, 2000, out);
 setTimeout(function () { adc.close(); }, 100000);
+
 const loadCell = new HX711(6, 5, { //6=clk pin 5=datapin
   continous: 30,
   offset : 8300964 //, //A tester (permet de faire le zero)
@@ -118,7 +117,7 @@ function random(min, max) {
   return Math.random() * (max - min) + min;
 }
 function Alarme(tempe) {
-  if(tempe > 28) {
+  while(tempe > 28) {
     rpio.sleep(1);//fréquence entre les bips
     rpio.write(pinBuzzer,rpio.HIGH);
     rpio.msleep(300);//durée du bip //msleep est en millisecond et sleep en second
