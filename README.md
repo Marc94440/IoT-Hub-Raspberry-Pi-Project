@@ -42,3 +42,4 @@ This code is based on a sample code from Azure.
 - Step to step tutorial to connect to Power Bi for real time data visualisation: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi
 - Real time Power Bi Dashboard : https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming
 - To stream your data into a blob storage : https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal
+- HX711 library : https://github.com/jrj2211/pi-hx711
