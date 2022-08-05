@@ -13,6 +13,9 @@ open Windows PowerShell and type :
 ```bash
 ssh pi@'Your Pi ip address'
 ```
+Then type your password.
+
+### Install Node.js and some packages
 
 On your Raspberry Pi or using SSH, first install the latest version of nodejs : 
 ```bash
@@ -35,7 +38,7 @@ nano config.json
 ```
 <photo>
 ### Run the application
-Run the application by copying your device IoT Hub connection string and typing the following command :
+To run the application you need to copy your device IoT Hub connection string and type the following command :
   
 ```bash
 sudo node index.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
