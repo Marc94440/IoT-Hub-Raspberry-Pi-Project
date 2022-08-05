@@ -43,6 +43,7 @@ To run the application you need to copy your device IoT Hub connection string an
 ```bash
 sudo node index.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
 ```
+To get your connection string go to : [Microsoft Azure](https://portal.azure.com/#home) and click on your IoT Hub resource.
   
 ## Credit
 This code is based on a sample code from Azure. 
