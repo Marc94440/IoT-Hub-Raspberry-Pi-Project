@@ -1,6 +1,4 @@
-/*
-* IoT Hub Raspberry Pi NodeJS - Microsoft Sample Code - Copyright (c) 2017 - Licensed MIT
-*/
+// Ce code permet de lire la valeur d'un potentiomètre sur 10 bits (0 à 1023) grace à la puce MCP3008
 'use strict';
 
 var Mcp3008 = require('mcp3008.js'),
@@ -10,5 +8,5 @@ var Mcp3008 = require('mcp3008.js'),
     };
 
 adc.read(0, out);
-adc.poll(0, 2000, out);
-setTimeout(function () { adc.close(); }, 100000);
+adc.poll(0, 2000, out); //2000 est la fréquence d'échantillonnage en milliseconde 
+setTimeout(function () { adc.close(); }, 100000); //100000 est le temps en ms pendant lequel la fonction va tourner

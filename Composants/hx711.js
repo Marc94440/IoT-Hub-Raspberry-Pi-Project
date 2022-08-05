@@ -1,3 +1,4 @@
+// Ce code est juste un module pour le capteur de poids HX711 nécessaire pour le code Scale.js 
 const { Gpio } = require('pigpio');
 
 class HX711 {

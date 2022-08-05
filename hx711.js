@@ -1,3 +1,4 @@
+// Ce code est un module pour le capteur de poids HX711 nécessaire pour le faire marcher la balance 
 const { Gpio } = require('pigpio');
 
 class HX711 {
