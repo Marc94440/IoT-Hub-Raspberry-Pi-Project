@@ -31,7 +31,7 @@ nano config.json
 Run the application by copying your device IoT Hub connection string and typing the following command :
   
 ```bash
-sudo node index1.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
+sudo node index.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
 ```
   
 ### Credit
