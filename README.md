@@ -37,7 +37,9 @@ To change the initialization variables :
 nano config.json       
 ```
 <photo>
+  
 ### Run the application
+
 To run the application you need to copy your device IoT Hub connection string and type the following command :
   
 ```bash
