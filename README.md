@@ -1,13 +1,19 @@
 # IoT-Hub-Raspberry-Pi-Project
 
-### Introduction
-<x>
+## Introduction
+<a>
 <Node.js application for a Raspberry Pi to control an industry 4.0 factory mock-up using Microsoft's cloud (Azure IoT Hub). While making (photo maquette)>
 <This project was presented to me as a 2 months internship at [Dynagile Consulting](https://en.dynagile.com/) to showcase client the usefulness of>
                                                                                                    
-### Installation
-<Branchement>  
-                                                                                                   
+## Installation  
+
+### Connect to the Raspberry Pi
+
+open Windows PowerShell and type :
+```bash
+ssh pi@'Your Pi ip address'
+```
+
 On your Raspberry Pi or using SSH, first install the latest version of nodejs : 
 ```bash
 curl -sL http://deb.nodesource.com/setup_16.x | sudo -E bash
@@ -28,13 +34,14 @@ To change the initialization variables :
 nano config.json       
 ```
 <photo>
+### Run the application
 Run the application by copying your device IoT Hub connection string and typing the following command :
   
 ```bash
 sudo node index.js 'YOUR AZURE IOT HUB DEVICE CONNECTION STRING'  
 ```
   
-### Credit
+## Credit
 This code is based on a sample code from Azure. 
 
 - The original code is available here : https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Tutorials/RaspberryPiApp
