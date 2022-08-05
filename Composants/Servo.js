@@ -16,14 +16,14 @@ setInterval(() => {
   // cycle : (fermé|fermé -> ouvert|fermé -> fermé|fermé fermé|ouvert -> fermé|fermé )
   pulseWidth=1000;
   Smotor1.servoWrite(pulseWidth);
-  rpio.msleep(350);
+  rpio.msleep(300);
   Smotor1.servoWrite(pulseWidth-500);
-  rpio.msleep(350);
+  rpio.msleep(300);
   pulseWidth=1000;
   Smotor2.servoWrite(pulseWidth);
-  rpio.msleep(350);
+  rpio.msleep(300);
   Smotor2.servoWrite(pulseWidth-500);
-  rpio.msleep(350);
+  rpio.msleep(300);
 
   // permet de changer le sens de rotation (increment=500 -> sens horaire et increment=-500 -> sens anti-horaire)
   pulseWidth += increment;

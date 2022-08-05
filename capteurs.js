@@ -20,14 +20,14 @@ let increment = 500;
 setInterval(() => {
   pulseWidth=1000;  
   Smotor1.servoWrite(pulseWidth);
-  rpio.msleep(350);
+  rpio.msleep(300);
   Smotor1.servoWrite(pulseWidth-500);
-  rpio.msleep(350);  
+  rpio.msleep(300);  
   pulseWidth=1000;  
   Smotor2.servoWrite(pulseWidth);
-  rpio.msleep(350);
+  rpio.msleep(300);
   Smotor2.servoWrite(pulseWidth-500);
-  rpio.msleep(350);
+  rpio.msleep(300);
 
   pulseWidth += increment;
   if (pulseWidth >= 1500) {
@@ -108,7 +108,7 @@ Sensor.prototype.read = function (callback) {
     temperature: tempe, //temp(20, 30),
     humidity: hum , //random(60, 80)
     infrared : rpio.read(pinIR),//entier entre 0 et 1
-    weight: Math.round(loadCell.getLast()/1000)//random(0,1)
+    weight: loadCell.getLast()/1000//random(0,1)
   });
   Alarme();
 }

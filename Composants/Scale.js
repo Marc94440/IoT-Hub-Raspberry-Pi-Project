@@ -7,5 +7,5 @@ const loadCell = new HX711(6, 5, { //initialise les pins , 6=clk pin 5=datapin (
 });
 
 setInterval(async () => {
-  console.log(Math.round(loadCell.getLast()/1000)); //on divise pas 1000 pour convertir mg en g et Math.round() arrondit à l'unité
+  console.log(loadCell.getLast()/1000); //on divise pas 1000 pour convertir mg en g et Math.round() arrondit à l'unité
 }, 1000); //fréquence d'échantillonnage
